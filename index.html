@@ -11,6 +11,7 @@
             text-align: center;
             padding: 10px;
             margin-top: 20px;
+            cursor: pointer;
         }
     </style>
     <script>
@@ -36,6 +37,16 @@
             adBanner.style.display = 'block';
         }
 
+        function trackAdClick() {
+            let adClickCount = localStorage.getItem('adClickCount');
+            if (!adClickCount) {
+                adClickCount = 0;
+            }
+            adClickCount++;
+            localStorage.setItem('adClickCount', adClickCount);
+            window.location.href = 'ad_page.html';
+        }
+
         window.onload = function() {
             updateVisitCount();
             displayAd();
@@ -45,6 +56,6 @@
 <body>
     <h1>Benvenuto!</h1>
     <p id="visitCount">Numero di visite: 0</p>
-    <div id="adBanner" class="ad-banner" style="display: none;"></div>
+    <div id="adBanner" class="ad-banner" onclick="trackAdClick()"></div>
 </body>
 </html>
