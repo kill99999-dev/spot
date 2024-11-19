@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tracker e Pubblicità</title>
+    <style>
+        .ad-banner {
+            width: 100%;
+            background-color: #f8d7da;
+            color: #721c24;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function updateVisitCount() {
+            let visitCount = localStorage.getItem('visitCount');
+            if (!visitCount) {
+                visitCount = 0;
+            }
+            visitCount++;
+            localStorage.setItem('visitCount', visitCount);
+            document.getElementById('visitCount').innerText = `Numero di visite: ${visitCount}`;
+        }
+
+        function displayAd() {
+            const adBanner = document.getElementById('adBanner');
+            const ads = [
+                "Annuncio 1: Scopri le nostre offerte!",
+                "Annuncio 2: Iscriviti alla nostra newsletter!",
+                "Annuncio 3: Approfitta dei nostri sconti!"
+            ];
+            const randomAd = ads[Math.floor(Math.random() * ads.length)];
+            adBanner.innerText = randomAd;
+            adBanner.style.display = 'block';
+        }
+
+        window.onload = function() {
+            updateVisitCount();
+            displayAd();
+        };
+    </script>
+</head>
+<body>
+    <h1>Benvenuto!</h1>
+    <p id="visitCount">Numero di visite: 0</p>
+    <div id="adBanner" class="ad-banner" style="display: none;"></div>
+</body>
+</html>
