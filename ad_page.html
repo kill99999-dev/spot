@@ -1,1 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettagli Annuncio</title>
+    <script>
+        function displayAdClickCount() {
+            let adClickCount = localStorage.getItem('adClickCount');
+            if (!adClickCount) {
+                adClickCount = 0;
+            }
+            document.getElementById('adClickCount').innerText = `Pubblicità premuta: ${adClickCount} volte`;
+        }
 
+        window.onload = displayAdClickCount;
+    </script>
+</head>
+<body>
+    <h1>Benvenuto!</h1>
+    <p id="adClickCount">Pubblicità premuta: 0 volte</p>
+</body>
+</html>
