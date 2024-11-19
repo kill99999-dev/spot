@@ -50,12 +50,14 @@
         window.onload = function() {
             updateVisitCount();
             displayAd();
+            // Assicuriamoci che l'evento di clic venga associato dopo che l'annuncio è stato visualizzato
+            document.getElementById('adBanner').addEventListener('click', trackAdClick);
         };
     </script>
 </head>
 <body>
     <h1>Benvenuto!</h1>
     <p id="visitCount">Numero di visite: 0</p>
-    <div id="adBanner" class="ad-banner" onclick="trackAdClick()"></div>
+    <div id="adBanner" class="ad-banner"></div>
 </body>
 </html>
